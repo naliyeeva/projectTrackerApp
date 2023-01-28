@@ -1,5 +1,5 @@
 import {Button} from "./Button";
 
 export const AddButton = () => {
-    return <Button>Add</Button>
+    return <Button style={{marginLeft: '10px'}}>Add A New Project</Button>
 }
