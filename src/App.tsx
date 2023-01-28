@@ -1,18 +1,24 @@
 import React from 'react';
 import styles from './style.module.scss';
-import {Welcome} from "./components/Main/Welcome/Welcome";
-import {AddButton} from "./components/Main/Buttons/AddButton";
-import {ListAllButton} from "./components/Main/Buttons/ListAllButton";
-import {Container} from "./components/Main/Buttons/Container";
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import {HomePage} from "./pages/HomePage";
+import {PageNotFound} from "./pages/PageNotFound";
+import {AddProject} from "./components/NewProject/AddProject";
+import {ListProjects} from "./components/AllProjects/ListProjects";
+
+// doing this way is newer version
+const router = createBrowserRouter([
+    {path: '/', element: <HomePage />},
+    {path: '/add', element: <AddProject />},
+    {path: '/list', element: <ListProjects />},
+    {path: '*', element: <PageNotFound />}
+])
 
 function App() {
   return (
     <div className={styles.mainContainer}>
-      <Welcome />
-        <Container>
-            <AddButton />
-            <ListAllButton />
-        </Container>
+        {/*<HomePage />*/}
+        <RouterProvider router={router} />
     </div>
   );
 }

@@ -1,5 +1,10 @@
 import {Button} from "./Button";
+import {Link} from "react-router-dom";
 
 export const AddButton = () => {
-    return <Button style={{marginLeft: '10px'}}>Add A New Project</Button>
+    return(
+        <>
+            <Link to='/add'>Add A New Project</Link>
+        </>
+    )
 }
