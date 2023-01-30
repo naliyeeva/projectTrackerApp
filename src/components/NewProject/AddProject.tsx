@@ -1,9 +1,20 @@
-import {HomeButton} from "../Main/Buttons/HomeButton";
+import {Link} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 export const AddProject = () => {
+    const navigate = useNavigate();
+
     return(
         <>
-            <HomeButton />
+            <Link
+                to="/"
+                onClick={(e) => {
+                    e.preventDefault();
+                    navigate('/');
+                }}
+            >
+                Home Page
+            </Link>
             <br />
             <label>Enter project name</label>
             <input />
