@@ -2,6 +2,7 @@ import {Link, useNavigate} from "react-router-dom";
 
 export const ListProjects = () => {
     const navigate = useNavigate();
+    // const projects = useLoaderData();
 
     // consider fetching from some API
     const PROJECTS = [
