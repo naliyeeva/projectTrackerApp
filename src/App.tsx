@@ -7,6 +7,11 @@ import {AddProject} from "./pages/NewProject/AddProject";
 import {ListProjects} from "./pages/AllProjects/ListProjects";
 import {ProjectDetails} from "./pages/AllProjects/ProjectDetails";
 
+// add lazy loading for pages
+
+// consider refactoring code for router (<Routes>)
+// and also React Suspense
+
 // doing this way is newer version
 const router = createBrowserRouter([
     // index: true means setting a default route
