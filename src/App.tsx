@@ -5,7 +5,7 @@ import {HomePage} from "./pages/HomePage";
 import {PageNotFound} from "./pages/PageNotFound";
 import {AddProject} from "./pages/NewProject/AddProject";
 import {ListProjects} from "./pages/AllProjects/ListProjects";
-import {ProjectDetails} from "./pages/AllProjects/ProjectDetails";
+import {ProjectDetails, loader as projectDetailLoader} from "./pages/AllProjects/ProjectDetails";
 
 // add lazy loading for pages
 
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     {path: '/add', element: <AddProject />},
     // consider adding a loader
     {path: '/projects', element: <ListProjects />},
-    {path: '/projects/:projectId', element: <ProjectDetails />},
+    {path: '/projects/:projectId', element: <ProjectDetails />, loader: projectDetailLoader},
     {path: '*', element: <PageNotFound />}
 ])
 
