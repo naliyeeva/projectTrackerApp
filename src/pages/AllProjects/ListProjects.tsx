@@ -1,6 +1,7 @@
 import {Link, useNavigate} from "react-router-dom";
 
-export const ListProjects = () => {
+const ListProjects = () => {
+    document.title = "List of Projects";
     const navigate = useNavigate();
     // const projects = useLoaderData();
 
@@ -31,3 +32,5 @@ export const ListProjects = () => {
         </>
     )
 }
+
+export default ListProjects;

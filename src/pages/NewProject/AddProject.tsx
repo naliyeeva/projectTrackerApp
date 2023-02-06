@@ -1,7 +1,8 @@
 import {Link} from "react-router-dom";
 import {useNavigate} from "react-router-dom";
 
-export const AddProject = () => {
+const AddProject = () => {
+    document.title = "New Project";
     const navigate = useNavigate();
 
     return(
@@ -29,3 +30,5 @@ export const AddProject = () => {
         </>
     )
 }
+
+export default AddProject;

@@ -1,7 +1,8 @@
 import {useParams, json, useLoaderData} from "react-router-dom";
 import {ProjectItem} from "./ProjectItem";
 
-export const ProjectDetails = () => {
+const ProjectDetails = () => {
+    document.title = "Details";
     const params = useParams();
     // const data = useLoaderData();
 
@@ -26,4 +27,6 @@ export const ProjectDetails = () => {
 //         return response;
 //     }
 // }
+
+export default ProjectDetails;
 

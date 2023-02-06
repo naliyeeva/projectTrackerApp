@@ -3,7 +3,9 @@ import {Container} from "../components/Main/Buttons/Container";
 import {AddButton} from "../components/Main/Buttons/AddButton";
 import {ListAllButton} from "../components/Main/Buttons/ListAllButton";
 
-export const HomePage = () => {
+const HomePage = () => {
+    document.title = "Home";
+
     return(
         <>
             <Welcome />
@@ -14,3 +16,5 @@ export const HomePage = () => {
         </>
     )
 }
+
+export default HomePage;

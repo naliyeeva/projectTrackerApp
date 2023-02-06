@@ -1,34 +1,45 @@
-import React from 'react';
+import React, {lazy, Suspense} from 'react';
 import styles from './style.module.scss';
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
-import {HomePage} from "./pages/HomePage";
-import {PageNotFound} from "./pages/PageNotFound";
-import {AddProject} from "./pages/NewProject/AddProject";
-import {ListProjects} from "./pages/AllProjects/ListProjects";
-import {ProjectDetails} from "./pages/AllProjects/ProjectDetails";
-// import {loader as projectDetailLoader} from "./pages/AllProjects/ProjectDetails";
+import {Route, Routes} from "react-router-dom";
+import Loader from "./components/Loader";
 
-// add lazy loading for pages
-
-// consider refactoring code for router (<Routes>)
-// and also React Suspense
-
-// doing this way is newer version
-const router = createBrowserRouter([
-    // index: true means setting a default route
-    {index: true, element: <HomePage />},
-    {path: '/add', element: <AddProject />},
-    // consider adding a loader
-    {path: '/projects', element: <ListProjects />},
-    {path: '/projects/:projectId', element: <ProjectDetails />}, // loader: projectDetails
-    {path: '*', element: <PageNotFound />}
-])
+const HomePage = lazy(() => import('./pages/HomePage'));
+const PageNotFound = lazy(() => import('./pages/PageNotFound'));
+const AddProject = lazy(() => import('./pages/NewProject/AddProject'));
+const ListProjects = lazy(() => import('./pages/AllProjects/ListProjects'));
+const ProjectDetails = lazy(() => import('./pages/AllProjects/ProjectDetails'));
 
 function App() {
   return (
-    <div className={styles.mainContainer}>
-        <RouterProvider router={router} />
-    </div>
+      <div className={styles.mainContainer}>
+          <Routes>
+              <Route path="/" element={
+                  <Suspense fallback={<Loader/>}>
+                      <HomePage />
+                  </Suspense>
+              }/>
+              <Route path="/add" element={
+                  <Suspense fallback={<Loader/>}>
+                      <AddProject />
+                  </Suspense>
+              }/>
+              <Route path="/projects" element={
+                  <Suspense fallback={<Loader/>}>
+                      <ListProjects />
+                  </Suspense>
+              }/>
+              <Route path="/projects/:projectId" element={
+                  <Suspense fallback={<Loader/>}>
+                      <ProjectDetails />
+                  </Suspense>
+              }/>
+              <Route path="*" element={
+                  <Suspense fallback={<Loader/>}>
+                      <PageNotFound />
+                  </Suspense>
+              }/>
+          </Routes>
+      </div>
   );
 }
 
