@@ -1,9 +1,18 @@
 import {Link} from "react-router-dom";
 import {useNavigate} from "react-router-dom";
+import React, {useRef, useState} from "react";
 
-const AddProject = () => {
+const AddProject: React.FC = () => {
     document.title = "New Project";
     const navigate = useNavigate();
+    const title = useRef<HTMLInputElement>(null);
+    const description = useRef<HTMLTextAreaElement>(null);
+    const tech = useRef<HTMLInputElement>(null);
+
+
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+        console.log(`Title is ${title.current!.value}, description is ${description.current!.value}, technology is ${tech.current!.value}`);
+    }
 
     return(
         <>
@@ -18,14 +27,14 @@ const AddProject = () => {
             </Link>
             <br />
             <label>Enter project name</label>
-            <input />
+            <input ref={title}/>
             <br />
             <label>Enter project description</label>
-            <textarea></textarea>
+            <textarea ref={description}></textarea>
             <br />
             <label>Enter technologies that you will use</label>
-            <input />
-            <button>Add</button>
+            <input ref={tech}/>
+            <button type="button" onClick={handleClick}>Add</button>
             <br />
         </>
     )
