@@ -13,11 +13,11 @@ const AddProject: React.FC = () => {
     const [description, setDescription] = useState<string>('');
     const [tech, setTech] = useState<string>('');
 
-    const project = {
-        title: title,
-        description: description,
-        tech: tech
-    }
+    // const project = {
+    //     title: title,
+    //     description: description,
+    //     tech: tech
+    // }
 
     const handleTitleValue = (e: React.ChangeEvent<HTMLInputElement>) => {
         setTitle(e.target.value);
@@ -47,17 +47,39 @@ const AddProject: React.FC = () => {
         if(title === '' || description === '' || tech === '') {
             setError(true);
         } else {
+            // interface Project {
+            //     title: string,
+            //     description: string,
+            //     tech: string
+            // }
 
+            const addedProjects = JSON.parse(localStorage.getItem('project') || '{}')
+                ? JSON.parse(localStorage.getItem('project') || '{}')
+                : [];
+
+            const addedProjectsArray = Array.from(addedProjects);
+
+            const newProject = [
+                ...addedProjectsArray,
+                {
+                    title,
+                    description,
+                    tech
+                }
+            ]
+            console.log(newProject);
+
+            localStorage.setItem('project', JSON.stringify(newProject));
             // console.log(`Title is ${title}, description is ${description}, technology is ${tech}`);
         }
     }
 
-    useEffect(() => {
-        localStorage.setItem('project', JSON.stringify(project));
-    }, [project]);
-    
-    const addedProject = JSON.parse(localStorage.getItem('project') || '{}');
-    console.log(addedProject)
+    // useEffect(() => {
+    //     localStorage.setItem('project', JSON.stringify(project));
+    // }, [project]);
+    //
+    // const addedProject = JSON.parse(localStorage.getItem('project') || '{}');
+
 
     return(
         <>
@@ -84,7 +106,6 @@ const AddProject: React.FC = () => {
             {error && <p style={{color: "red"}}>Please enter technology</p>}
             <button type="button" onClick={handleClick}>Add</button>
             <br />
-            <div>{addedProject.title} {addedProject.description} {addedProject.tech}</div>
         </>
     )
 }
