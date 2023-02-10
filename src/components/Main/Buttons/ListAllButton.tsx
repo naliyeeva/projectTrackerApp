@@ -1,5 +1,6 @@
 import {Link} from "react-router-dom";
+import {StyledLink} from "./StyledLink";
 
 export const ListAllButton = () => {
-    return <Link to="/projects">List All Projects</Link>
+    return <StyledLink to="/projects">List All Projects</StyledLink>
 }

@@ -1,10 +1,9 @@
-import {Button} from "./Button";
-import {Link} from "react-router-dom";
+import {StyledLink} from "./StyledLink";
 
 export const AddButton = () => {
     return(
         <>
-            <Link to='/add'>Add A New Project</Link>
+            <StyledLink to='/add'>Add A New Project</StyledLink>
         </>
     )
 }
