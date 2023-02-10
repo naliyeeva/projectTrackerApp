@@ -8,12 +8,12 @@ interface Project {
     tech: string;
 }
 
-interface Props {
-    projectsList?: Project[];
-    setProjectsList: (value: Project[]) => void;
-}
+// interface Props {
+//     projectsList?: Project[];
+//     setProjectsList: (value: Project[]) => void;
+// }
 
-const AddProject: React.FC<Props> = (props) => {
+const AddProject: React.FC = () => {
     document.title = "New Project";
     const navigate = useNavigate();
     const [error, setError] = useState<boolean>(false);
@@ -52,7 +52,7 @@ const AddProject: React.FC<Props> = (props) => {
                 }
             ]
             localStorage.setItem('project', JSON.stringify(newProject));
-            props.setProjectsList(newProject);
+            // props.setProjectsList(newProject);
         }
     }
 

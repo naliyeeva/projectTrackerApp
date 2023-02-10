@@ -1,5 +1,5 @@
 import {Link, useNavigate} from "react-router-dom";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 interface Project {
     title: string;
@@ -7,17 +7,15 @@ interface Project {
     tech: string;
 }
 
-interface Props {
-    projectsList: Project[];
-    setProjectsList?: (value: Project[]) => void;
-    list: boolean;
-}
-
-const ListProjects: React.FC<Props> = (props) => {
+const ListProjects: React.FC = () => {
     document.title = "List of Projects";
     const navigate = useNavigate();
+    const [data, setData] = useState<Project[]>([]);
 
-    console.log(props.list)
+    useEffect(() => {
+        const saved = JSON.parse(localStorage.getItem('project') || '{}');
+        setData(saved);
+    }, []);
 
     // consider fetching from some API
     return (
@@ -31,10 +29,10 @@ const ListProjects: React.FC<Props> = (props) => {
             >
                 Home Page
             </Link>
-            <h1>Your projects will be listed here!</h1>
-            {props.list && props.projectsList.map((item) => {
-                return(<ul><li key={Math.random()}>{item.title}</li></ul>)
-            })}
+            <div>
+                {data ? <p>{data.map((item) => {return(<ul><li key={Math.random()}>{item.title}</li></ul>)})}</p>
+                    : <p>Not found</p>}
+            </div>
         </>
     )
 }

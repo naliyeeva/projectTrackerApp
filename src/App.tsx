@@ -9,20 +9,12 @@ const AddProject = lazy(() => import('./pages/NewProject/AddProject'));
 const ListProjects = lazy(() => import('./pages/AllProjects/ListProjects'));
 const ProjectDetails = lazy(() => import('./pages/AllProjects/ProjectDetails'));
 
-interface Project {
-    title: string;
-    description: string;
-    tech: string;
-}
-
 function App() {
-    const [projectsList, setProjectsList] = useState<Project[]>([]);
-    const [list, setList] = useState<boolean>(false);
-    const location = useLocation();
+    // const location = useLocation();
 
-    useEffect(() => {
-        location.pathname === '/projects' && setList(true);
-    }, [location.pathname]);
+    // useEffect(() => {
+    //     location.pathname === '/projects' && setList(true);
+    // }, [location.pathname]);
 
     return (
       <div className={styles.mainContainer}>
@@ -34,12 +26,12 @@ function App() {
               }/>
               <Route path="/add" element={
                   <Suspense fallback={<Loader/>}>
-                      <AddProject setProjectsList={setProjectsList}/>
+                      <AddProject />
                   </Suspense>
               }/>
               <Route path="/projects" element={
                   <Suspense fallback={<Loader/>}>
-                      <ListProjects projectsList={projectsList} list={list}  />
+                      <ListProjects />
                   </Suspense>
               }/>
               <Route path="/projects/:projectId" element={
