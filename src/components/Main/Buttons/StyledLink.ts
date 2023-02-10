@@ -5,10 +5,9 @@ export const StyledLink = styled(Link)`
   margin-right: 10px;
   border-radius: 5px;
   padding: 8px 12px;
-  background-color: #78909C;
+  background-color: #E0E0E0;
   text-decoration: none;
-  color: #ECEFF1;
   &:visited {
-    color: #ECEFF1;
+    color: #212121;
   }
 `
