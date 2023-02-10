@@ -1,17 +1,25 @@
 import {Link, useNavigate} from "react-router-dom";
+import React, {useState} from "react";
 
-const ListProjects = () => {
+interface Project {
+    title: string;
+    description: string;
+    tech: string;
+}
+
+interface Props {
+    projectsList: Project[];
+    setProjectsList?: (value: Project[]) => void;
+    list: boolean;
+}
+
+const ListProjects: React.FC<Props> = (props) => {
     document.title = "List of Projects";
     const navigate = useNavigate();
-    // const projects = useLoaderData();
+
+    console.log(props.list)
 
     // consider fetching from some API
-    const PROJECTS = [
-        {id: 1, title: 'Project 1'},
-        {id: 2, title: 'Project 2'},
-        {id: 3, title: 'Project 3'}
-    ];
-
     return (
         <>
             <Link
@@ -24,11 +32,9 @@ const ListProjects = () => {
                 Home Page
             </Link>
             <h1>Your projects will be listed here!</h1>
-            <ul>
-                {PROJECTS.map(project => (<li key={project.id}>
-                    <Link to={`/projects/${project.id}`}>{project.title}</Link>
-                </li>))}
-            </ul>
+            {props.list && props.projectsList.map((item) => {
+                return(<ul><li key={Math.random()}>{item.title}</li></ul>)
+            })}
         </>
     )
 }

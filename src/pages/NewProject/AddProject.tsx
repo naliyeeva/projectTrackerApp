@@ -1,23 +1,25 @@
 import {Link} from "react-router-dom";
 import {useNavigate} from "react-router-dom";
-import React, {useEffect, useRef, useState} from "react";
+import React, {useState} from "react";
 
-const AddProject: React.FC = () => {
+interface Project {
+    title: string;
+    description: string;
+    tech: string;
+}
+
+interface Props {
+    projectsList?: Project[];
+    setProjectsList: (value: Project[]) => void;
+}
+
+const AddProject: React.FC<Props> = (props) => {
     document.title = "New Project";
     const navigate = useNavigate();
-    // const title = useRef<HTMLInputElement>(null);
-    // const description = useRef<HTMLTextAreaElement>(null);
-    // const tech = useRef<HTMLInputElement>(null);
     const [error, setError] = useState<boolean>(false);
     const [title, setTitle] = useState<string>('');
     const [description, setDescription] = useState<string>('');
     const [tech, setTech] = useState<string>('');
-
-    // const project = {
-    //     title: title,
-    //     description: description,
-    //     tech: tech
-    // }
 
     const handleTitleValue = (e: React.ChangeEvent<HTMLInputElement>) => {
         setTitle(e.target.value);
@@ -32,34 +34,16 @@ const AddProject: React.FC = () => {
     }
 
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    //     if(title.current!.value === '' || description.current!.value === '' || tech.current!.value === '') {
-    //         setError(true);
-    //     } else {
-    //         // const project = {
-    //         //     title: title.current!.value,
-    //         //     description: description.current!.value,
-    //         //     tech: tech.current!.value
-    //         // }
-    //         // localStorage.setItem('project', JSON.stringify(project));
-    //         console.log(`Title is ${title.current!.value}, description is ${description.current!.value}, technology is ${tech.current!.value}`)
-    //     }
-
         if(title === '' || description === '' || tech === '') {
             setError(true);
         } else {
-            // interface Project {
-            //     title: string,
-            //     description: string,
-            //     tech: string
-            // }
-
             const addedProjects = JSON.parse(localStorage.getItem('project') || '{}')
                 ? JSON.parse(localStorage.getItem('project') || '{}')
                 : [];
 
-            const addedProjectsArray = Array.from(addedProjects);
+            const addedProjectsArray: Project[] = Array.from(addedProjects);
 
-            const newProject = [
+            const newProject: Project[] = [
                 ...addedProjectsArray,
                 {
                     title,
@@ -67,19 +51,10 @@ const AddProject: React.FC = () => {
                     tech
                 }
             ]
-            console.log(newProject);
-
             localStorage.setItem('project', JSON.stringify(newProject));
-            // console.log(`Title is ${title}, description is ${description}, technology is ${tech}`);
+            props.setProjectsList(newProject);
         }
     }
-
-    // useEffect(() => {
-    //     localStorage.setItem('project', JSON.stringify(project));
-    // }, [project]);
-    //
-    // const addedProject = JSON.parse(localStorage.getItem('project') || '{}');
-
 
     return(
         <>
