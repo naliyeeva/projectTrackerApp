@@ -1,6 +1,7 @@
-import {Link} from "react-router-dom";
 import {useNavigate} from "react-router-dom";
 import React, {useState} from "react";
+import {StyledLink} from "../../components/Main/Buttons/StyledLink";
+import {Input} from "../../components/Main/Input";
 
 interface Project {
     title: string;
@@ -58,7 +59,7 @@ const AddProject: React.FC = () => {
 
     return(
         <>
-            <Link
+            <StyledLink
                 to="/"
                 onClick={(e) => {
                     e.preventDefault();
@@ -66,21 +67,17 @@ const AddProject: React.FC = () => {
                 }}
             >
                 Home Page
-            </Link>
-            <br />
+            </StyledLink>
             <label>Enter project name</label>
-            <input onChange={handleTitleValue}/>
+            <Input onChange={handleTitleValue}/>
             {error && <p style={{color: "red"}}>Please enter a project name</p>}
-            <br />
             <label>Enter project description</label>
             <textarea style={{resize: "none"}} onChange={handleDescValue}></textarea>
             {error && <p style={{color: "red"}}>Please enter a description</p>}
-            <br />
             <label>Enter technologies that you will use</label>
-            <input onChange={handleTechValue}/>
+            <Input onChange={handleTechValue}/>
             {error && <p style={{color: "red"}}>Please enter technology</p>}
             <button type="button" onClick={handleClick}>Add</button>
-            <br />
         </>
     )
 }
