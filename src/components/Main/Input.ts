@@ -11,7 +11,6 @@ export const Input = styled.input`
     transition: border .1s;
     width: 100%;
     margin-bottom: 15px;
-    
   
     &:focus {
       border: 1px solid #ECEFF1;

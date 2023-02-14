@@ -5,6 +5,8 @@ import {Input} from "../../components/Main/Input";
 import {Form} from "../../components/Main/Form";
 import {Textarea} from "../../components/Main/Textarea";
 import {Button} from "../../components/Main/Button";
+import {TechTag} from "../../components/Main/TechTag";
+import {TechStack} from "../../components/Main/TechStack";
 
 interface Project {
     title: string;
@@ -85,10 +87,12 @@ const AddProject: React.FC = () => {
                 {error && <p style={{color: "red"}}>Please enter a description</p>}
                 <label>Enter technologies that you will use</label>
                 <span>
-                    <Input onChange={handleTechValue} style={{width: '70%'}}/>
+                    <Input onChange={handleTechValue} style={{width: '80%'}}/>
                     {error && <p style={{color: "red"}}>Please enter technology</p>}
-                    <Button style={{marginTop: '0', width: '18%'}} onClick={handleTagClick}>+</Button>
-                    {techArray.map((item, index) => <span key={index}>#{item}</span>)}
+                    <Button style={{marginTop: '0', width: '12%'}} onClick={handleTagClick}>+</Button>
+                    <TechStack>
+                        {techArray.map((item, index) => <TechTag key={index}>#{item}</TechTag>)}
+                    </TechStack>
                 </span>
                 <Button onClick={handleClick}>Add Your Project</Button>
             </Form>
@@ -97,5 +101,5 @@ const AddProject: React.FC = () => {
 }
 
 export default AddProject;
-//  add design for tags
 //  error validation for both + and add proj btn
+// set tech to '' once + is clicked
