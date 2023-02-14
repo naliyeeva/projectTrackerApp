@@ -24,6 +24,7 @@ const AddProject: React.FC = () => {
     const [title, setTitle] = useState<string>('');
     const [description, setDescription] = useState<string>('');
     const [tech, setTech] = useState<string>('');
+    const [techArray, setTechArray] = useState<string[]>([]);
 
     const handleTitleValue = (e: React.ChangeEvent<HTMLInputElement>) => {
         setTitle(e.target.value);
@@ -35,6 +36,10 @@ const AddProject: React.FC = () => {
 
     const handleTechValue = (e: React.ChangeEvent<HTMLInputElement>) => {
         setTech(e.target.value);
+    }
+
+    const handleTagClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+        setTechArray([...techArray, tech]);
     }
 
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -82,7 +87,8 @@ const AddProject: React.FC = () => {
                 <span>
                     <Input onChange={handleTechValue} style={{width: '70%'}}/>
                     {error && <p style={{color: "red"}}>Please enter technology</p>}
-                    <Button style={{marginTop: '0', width: '18%'}}>+</Button>
+                    <Button style={{marginTop: '0', width: '18%'}} onClick={handleTagClick}>+</Button>
+                    {techArray.map((item, index) => <span key={index}>#{item}</span>)}
                 </span>
                 <Button onClick={handleClick}>Add Your Project</Button>
             </Form>
