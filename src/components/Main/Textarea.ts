@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Input = styled.input`
+export const Textarea = styled.textarea`
     background-color: rgba(66, 66, 66, 0.5);
     border-radius: 3px;
     border: none;
@@ -12,7 +12,6 @@ export const Input = styled.input`
     width: 100%;
     margin-bottom: 15px;
     
-  
     &:focus {
       border: 1px solid #ECEFF1;
     }

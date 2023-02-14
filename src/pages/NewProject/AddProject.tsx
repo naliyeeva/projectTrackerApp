@@ -2,6 +2,9 @@ import {useNavigate} from "react-router-dom";
 import React, {useState} from "react";
 import {StyledLink} from "../../components/Main/Buttons/StyledLink";
 import {Input} from "../../components/Main/Input";
+import {Form} from "../../components/Main/Form";
+import {Textarea} from "../../components/Main/Textarea";
+import {Button} from "../../components/Main/Button";
 
 interface Project {
     title: string;
@@ -68,16 +71,21 @@ const AddProject: React.FC = () => {
             >
                 Home Page
             </StyledLink>
-            <label>Enter project name</label>
-            <Input onChange={handleTitleValue}/>
-            {error && <p style={{color: "red"}}>Please enter a project name</p>}
-            <label>Enter project description</label>
-            <textarea style={{resize: "none"}} onChange={handleDescValue}></textarea>
-            {error && <p style={{color: "red"}}>Please enter a description</p>}
-            <label>Enter technologies that you will use</label>
-            <Input onChange={handleTechValue}/>
-            {error && <p style={{color: "red"}}>Please enter technology</p>}
-            <button type="button" onClick={handleClick}>Add</button>
+            <Form>
+                <label>Enter project name</label>
+                <Input onChange={handleTitleValue} />
+                {error && <p style={{color: "red"}}>Please enter a project name</p>}
+                <label>Enter project description</label>
+                <Textarea style={{resize: "none"}} onChange={handleDescValue}></Textarea>
+                {error && <p style={{color: "red"}}>Please enter a description</p>}
+                <label>Enter technologies that you will use</label>
+                <span>
+                    <Input onChange={handleTechValue} style={{width: '70%'}}/>
+                    {error && <p style={{color: "red"}}>Please enter technology</p>}
+                    <Button style={{marginTop: '0', width: '18%'}}>+</Button>
+                </span>
+                <Button onClick={handleClick}>Add Your Project</Button>
+            </Form>
         </>
     )
 }
