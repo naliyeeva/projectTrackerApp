@@ -97,3 +97,5 @@ const AddProject: React.FC = () => {
 }
 
 export default AddProject;
+//  add design for tags
+//  error validation for both + and add proj btn
