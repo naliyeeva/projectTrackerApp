@@ -41,7 +41,9 @@ const AddProject: React.FC = () => {
     }
 
     const handleTagClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-        setTechArray([...techArray, tech]);
+        e.preventDefault();
+        tech !== '' && setTechArray([...techArray, tech]);
+        setTech('');
     }
 
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -80,14 +82,14 @@ const AddProject: React.FC = () => {
             </StyledLink>
             <Form>
                 <label>Enter project name</label>
-                <Input onChange={handleTitleValue} />
+                <Input onChange={handleTitleValue} value={title} />
                 {error && <p style={{color: "red"}}>Please enter a project name</p>}
                 <label>Enter project description</label>
-                <Textarea style={{resize: "none"}} onChange={handleDescValue}></Textarea>
+                <Textarea style={{resize: "none"}} onChange={handleDescValue} value={description}></Textarea>
                 {error && <p style={{color: "red"}}>Please enter a description</p>}
                 <label>Enter technologies that you will use</label>
                 <span>
-                    <Input onChange={handleTechValue} style={{width: '80%'}}/>
+                    <Input onChange={handleTechValue} style={{width: '80%'}} value={tech}/>
                     {error && <p style={{color: "red"}}>Please enter technology</p>}
                     <Button style={{marginTop: '0', width: '12%'}} onClick={handleTagClick}>+</Button>
                     <TechStack>
@@ -102,4 +104,3 @@ const AddProject: React.FC = () => {
 
 export default AddProject;
 //  error validation for both + and add proj btn
-// set tech to '' once + is clicked
