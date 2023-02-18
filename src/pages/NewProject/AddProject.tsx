@@ -1,12 +1,12 @@
 import {useNavigate} from "react-router-dom";
 import React, {useState} from "react";
-import {StyledLink} from "../../components/Main/Buttons/StyledLink";
-import {Input} from "../../components/Main/Input";
-import {Form} from "../../components/Main/Form";
-import {Textarea} from "../../components/Main/Textarea";
-import {Button} from "../../components/Main/Button";
-import {TechTag} from "../../components/Main/TechTag";
-import {TechStack} from "../../components/Main/TechStack";
+import {StyledLink} from "../../components/StyledComponents/StyledLink";
+import {Input} from "../../components/StyledComponents/Input";
+import {Form} from "../../components/StyledComponents/Form";
+import {Textarea} from "../../components/StyledComponents/Textarea";
+import {Button} from "../../components/StyledComponents/Button";
+import {TechTag} from "../../components/StyledComponents/TechTag";
+import {TechStack} from "../../components/StyledComponents/TechStack";
 import Swal from 'sweetalert2';
 
 interface Project {

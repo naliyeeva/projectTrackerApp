@@ -1,6 +1,6 @@
-import {Container} from "./Buttons/Container";
-import {Card} from "./Card";
-import {Tag} from "./Tag";
+import {Container} from "../StyledComponents/Container";
+import {Card} from "../StyledComponents/Card";
+import {Tag} from "../StyledComponents/Tag";
 
 const InfoCards = () => {
     return(

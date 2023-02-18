@@ -1,8 +1,8 @@
-import {Welcome} from "../components/Main/Welcome/Welcome";
-import {Container} from "../components/Main/Buttons/Container";
-import {AddButton} from "../components/Main/Buttons/AddButton";
-import {ListAllButton} from "../components/Main/Buttons/ListAllButton";
-import InfoCards from "../components/Main/InfoCards";
+import {Welcome} from "../components/Home/Welcome";
+import {Container} from "../components/StyledComponents/Container";
+import {AddButton} from "../components/Buttons/AddButton";
+import {ListAllButton} from "../components/Buttons/ListAllButton";
+import InfoCards from "../components/Home/InfoCards";
 
 const HomePage = () => {
     document.title = "Home";

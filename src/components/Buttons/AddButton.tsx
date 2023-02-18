@@ -1,4 +1,4 @@
-import {StyledLink} from "./StyledLink";
+import {StyledLink} from "../StyledComponents/StyledLink";
 
 export const AddButton = () => {
     return(
