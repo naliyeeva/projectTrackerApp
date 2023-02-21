@@ -1,10 +1,14 @@
-import {Link, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import React, {useEffect, useState} from "react";
+import {StyledLink} from "../../components/StyledComponents/StyledLink";
+import {ProjectCard} from "../../components/StyledComponents/ProjectCard";
+import {TechTag} from "../../components/StyledComponents/TechTag";
+import {Container} from "../../components/StyledComponents/Container";
 
 interface Project {
     title: string;
     description: string;
-    tech: string;
+    techArray: string[]
 }
 
 const ListProjects: React.FC = () => {
@@ -17,10 +21,19 @@ const ListProjects: React.FC = () => {
         setData(saved);
     }, []);
 
+    const getRandomColor = (): string => {
+        const letters = "0123456789ABCDEF";
+        let color = "#";
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
     // consider fetching from some API
     return (
         <>
-            <Link
+            <StyledLink
                 to="/"
                 onClick={(e) => {
                     e.preventDefault();
@@ -28,11 +41,24 @@ const ListProjects: React.FC = () => {
                 }}
             >
                 Home Page
-            </Link>
-            <div>
-                {data ? <p>{data.map((item) => {return(<ul><li key={Math.random()}>{item.title}</li></ul>)})}</p>
+            </StyledLink>
+            <Container>
+                {data ? data.map((item) => {return(
+                    <ProjectCard style={{border: '1px solid white'}}>
+                        <div style={{background: getRandomColor(), width: '100%', height: '30px'}}></div>
+                        <div style={{padding: '10px'}}>
+                            <h3>{item.title}</h3>
+                            <p>{item.description}</p>
+                            <div>{item.techArray.map((technology) => {
+                                return(
+                                    <TechTag>#{technology}</TechTag>
+                                )
+                            })}</div>
+                        </div>
+                    </ProjectCard>
+                    )})
                     : <p>Not found</p>}
-            </div>
+            </Container>
         </>
     )
 }
