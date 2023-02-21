@@ -12,7 +12,8 @@ import Swal from 'sweetalert2';
 interface Project {
     title: string;
     description: string;
-    tech: string;
+    tech?: string;
+    techArray: string[]
 }
 
 // interface Props {
@@ -65,7 +66,7 @@ const AddProject: React.FC = () => {
                 {
                     title,
                     description,
-                    tech
+                    techArray
                 }
             ]
             localStorage.setItem('project', JSON.stringify(newProject));
@@ -75,6 +76,9 @@ const AddProject: React.FC = () => {
                 text: 'Now you can find it in the lists section'
             })
             // props.setProjectsList(newProject);
+            setTitle('');
+            setDescription('');
+            setTechArray([]);
         }
     }
 
