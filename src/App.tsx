@@ -1,7 +1,7 @@
-import React, {lazy, Suspense, useEffect, useState} from 'react';
-import styles from './style.module.scss';
+import React, {lazy, Suspense} from 'react';
 import {Route, Routes, useLocation} from "react-router-dom";
 import Loader from "./components/Loader";
+import {MainContainer} from "./components/StyledComponents/MainContainer";
 
 const HomePage = lazy(() => import('./pages/HomePage'));
 const PageNotFound = lazy(() => import('./pages/PageNotFound'));
@@ -17,7 +17,7 @@ function App() {
     // }, [location.pathname]);
 
     return (
-      <div className={styles.mainContainer}>
+      <MainContainer>
           <Routes>
               <Route path="/" element={
                   <Suspense fallback={<Loader/>}>
@@ -45,7 +45,7 @@ function App() {
                   </Suspense>
               }/>
           </Routes>
-      </div>
+      </MainContainer>
   );
 }
 

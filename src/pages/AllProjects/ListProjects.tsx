@@ -48,7 +48,7 @@ const ListProjects: React.FC = () => {
                         <div style={{background: getRandomColor(), width: '100%', height: '30px'}}></div>
                         <div style={{padding: '10px'}}>
                             <h3>{item.title}</h3>
-                            <p>{item.description}</p>
+                            <p><i>{item.description}</i></p>
                             <div>{item.techArray.map((technology) => {
                                 return(
                                     <TechTag>#{technology}</TechTag>
