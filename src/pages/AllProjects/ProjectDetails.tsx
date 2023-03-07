@@ -1,32 +1,22 @@
-import {useParams, json, useLoaderData} from "react-router-dom";
-import {ProjectItem} from "./ProjectItem";
+import {useParams} from "react-router-dom";
+import React from "react";
 
-const ProjectDetails = () => {
+interface Props {
+
+}
+
+const ProjectDetails: React.FC<Props> = (props) => {
     document.title = "Details";
+    // contains every dynamic route segment
     const params = useParams();
-    // const data = useLoaderData();
 
     return (
         <>
             <h1>Project details</h1>
-            <p>Project id: {params.projectId}</p>
-            {/*<ProjectItem project={data} />*/}
+            <p>{params.projectId}</p>
         </>
     )
 }
-
-// export async function loader({request, params}) {
-//     const id = params.projectId;
-//
-//     const response = await fetch('http://localhost:3000/projects/' + id);
-//
-//     if(!response.ok) {
-//         throw json({message: 'Could not fetch details for selected project'})
-//     }
-//     else {
-//         return response;
-//     }
-// }
 
 export default ProjectDetails;
 

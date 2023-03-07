@@ -29,7 +29,7 @@ const AddProject: React.FC = () => {
     const [tech, setTech] = useState<string>('');
     const [techArray, setTechArray] = useState<string[]>([]);
 
-    const handleTitleValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleTitleValue = (e: React.ChangeEvent<HTMLInputElement>) : void => {
         setTitle(e.target.value);
     }
 
@@ -48,6 +48,7 @@ const AddProject: React.FC = () => {
     }
 
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+        const projectFromStorage = localStorage.getItem('project')
         if(title === '' || description === '' || techArray.length === 0) {
             Swal.fire({
                 icon: 'error',
@@ -56,7 +57,8 @@ const AddProject: React.FC = () => {
             })
         } else {
             const addedProjects = JSON.parse(localStorage.getItem('project') || '{}')
-                ? JSON.parse(localStorage.getItem('project') || '{}')
+                ?
+                JSON.parse(projectFromStorage ?? "")
                 : [];
 
             const addedProjectsArray: Project[] = Array.from(addedProjects);

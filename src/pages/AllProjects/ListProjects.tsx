@@ -1,9 +1,10 @@
-import {useNavigate} from "react-router-dom";
+import {useNavigate, Link} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import {StyledLink} from "../../components/StyledComponents/StyledLink";
 import {ProjectCard} from "../../components/StyledComponents/ProjectCard";
 import {TechTag} from "../../components/StyledComponents/TechTag";
 import {Container} from "../../components/StyledComponents/Container";
+import {TitleLink} from "../../components/StyledComponents/TitleLink";
 
 interface Project {
     title: string;
@@ -47,7 +48,7 @@ const ListProjects: React.FC = () => {
                     <ProjectCard style={{border: '1px solid white'}}>
                         <div style={{background: getRandomColor(), width: '100%', height: '30px'}}></div>
                         <div style={{padding: '10px'}}>
-                            <h3>{item.title}</h3>
+                            <h3><TitleLink to={`/projects/${item.title}`}>{item.title}</TitleLink></h3>
                             <p><i>{item.description}</i></p>
                             <div>{item.techArray.map((technology) => {
                                 return(

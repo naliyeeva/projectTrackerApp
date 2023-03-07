@@ -10,12 +10,6 @@ const ListProjects = lazy(() => import('./pages/AllProjects/ListProjects'));
 const ProjectDetails = lazy(() => import('./pages/AllProjects/ProjectDetails'));
 
 function App() {
-    // const location = useLocation();
-
-    // useEffect(() => {
-    //     location.pathname === '/projects' && setList(true);
-    // }, [location.pathname]);
-
     return (
       <MainContainer>
           <Routes>
