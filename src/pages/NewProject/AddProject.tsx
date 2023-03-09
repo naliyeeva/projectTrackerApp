@@ -8,18 +8,7 @@ import {Button} from "../../components/StyledComponents/Button";
 import {TechTag} from "../../components/StyledComponents/TechTag";
 import {TechStack} from "../../components/StyledComponents/TechStack";
 import Swal from 'sweetalert2';
-
-interface Project {
-    title: string;
-    description: string;
-    tech?: string;
-    techArray: string[]
-}
-
-// interface Props {
-//     projectsList?: Project[];
-//     setProjectsList: (value: Project[]) => void;
-// }
+import {Project} from "../../types";
 
 const AddProject: React.FC = () => {
     document.title = "New Project";
@@ -77,7 +66,6 @@ const AddProject: React.FC = () => {
                 title: 'Your project has been added!',
                 text: 'Now you can find it in the lists section'
             })
-            // props.setProjectsList(newProject);
             setTitle('');
             setDescription('');
             setTechArray([]);

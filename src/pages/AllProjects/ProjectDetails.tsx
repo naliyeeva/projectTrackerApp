@@ -1,11 +1,7 @@
 import {useParams} from "react-router-dom";
 import React from "react";
 
-interface Props {
-
-}
-
-const ProjectDetails: React.FC<Props> = (props) => {
+const ProjectDetails: React.FC = () => {
     document.title = "Details";
     // contains every dynamic route segment
     const params = useParams();

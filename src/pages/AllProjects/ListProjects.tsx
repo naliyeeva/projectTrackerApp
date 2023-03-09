@@ -1,16 +1,11 @@
-import {useNavigate, Link} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import {StyledLink} from "../../components/StyledComponents/StyledLink";
 import {ProjectCard} from "../../components/StyledComponents/ProjectCard";
 import {TechTag} from "../../components/StyledComponents/TechTag";
 import {Container} from "../../components/StyledComponents/Container";
 import {TitleLink} from "../../components/StyledComponents/TitleLink";
-
-interface Project {
-    title: string;
-    description: string;
-    techArray: string[]
-}
+import {Project} from "../../types";
 
 const ListProjects: React.FC = () => {
     document.title = "List of Projects";
