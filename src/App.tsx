@@ -1,5 +1,5 @@
 import React, {lazy, Suspense} from 'react';
-import {Route, Routes, useLocation} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import Loader from "./components/Loader";
 import {MainContainer} from "./components/StyledComponents/MainContainer";
 
