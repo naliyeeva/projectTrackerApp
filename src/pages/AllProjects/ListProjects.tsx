@@ -40,14 +40,14 @@ const ListProjects: React.FC = () => {
             </StyledLink>
             <Container>
                 {data ? data.map((item) => {return(
-                    <ProjectCard style={{border: '1px solid white'}}>
+                    <ProjectCard style={{border: '1px solid white'}} key={Math.random()}>
                         <div style={{background: getRandomColor(), width: '100%', height: '30px'}}></div>
                         <div style={{padding: '10px'}}>
                             <h3><TitleLink to={`/projects/${item.title}`}>{item.title}</TitleLink></h3>
                             <p><i>{item.description}</i></p>
                             <div>{item.techArray.map((technology) => {
                                 return(
-                                    <TechTag>#{technology}</TechTag>
+                                    <TechTag key={Math.random()}>#{technology}</TechTag>
                                 )
                             })}</div>
                         </div>

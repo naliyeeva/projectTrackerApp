@@ -1,3 +1,4 @@
+import React from 'react';
 import {Welcome} from "../components/Home/Welcome";
 import {Container} from "../components/StyledComponents/Container";
 import {AddButton} from "../components/Buttons/AddButton";

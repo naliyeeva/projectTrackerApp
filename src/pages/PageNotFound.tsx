@@ -1,3 +1,4 @@
+import React from 'react';
 import {NotFound} from "../components/StyledComponents/NotFound";
 
 const PageNotFound = () => {

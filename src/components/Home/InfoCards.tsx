@@ -1,3 +1,4 @@
+import React from 'react';
 import {Container} from "../StyledComponents/Container";
 import {Card} from "../StyledComponents/Card";
 import {Tag} from "../StyledComponents/Tag";
