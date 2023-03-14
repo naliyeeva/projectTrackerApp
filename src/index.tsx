@@ -9,9 +9,9 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <BrowserRouter>
-      <HashRouter basename="/projectTrackerApp">
+      {/*<HashRouter basename="/projectTrackerApp">*/}
           <App />
-      </HashRouter>
+      {/*</HashRouter>*/}
   </BrowserRouter>
 );
 
