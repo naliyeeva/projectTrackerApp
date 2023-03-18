@@ -13,31 +13,31 @@ function App() {
     return (
       <MainContainer>
           <Routes>
-              <Route path="/" element={
-                  <Suspense fallback={<Loader/>}>
-                      <HomePage />
-                  </Suspense>
-              }/>
-              <Route path="/add" element={
-                  <Suspense fallback={<Loader/>}>
-                      <AddProject />
-                  </Suspense>
-              }/>
-              <Route path="/projects" element={
-                  <Suspense fallback={<Loader/>}>
-                      <ListProjects />
-                  </Suspense>
-              }/>
-              <Route path="/projects/:projectId" element={
-                  <Suspense fallback={<Loader/>}>
-                      <ProjectDetails />
-                  </Suspense>
-              }/>
-              <Route path="*" element={
-                  <Suspense fallback={<Loader/>}>
-                      <PageNotFound />
-                  </Suspense>
-              }/>
+                  <Route path="/" element={
+                      <Suspense fallback={<Loader/>}>
+                          <HomePage />
+                      </Suspense>
+                  }/>
+                  <Route path="/add" element={
+                      <Suspense fallback={<Loader/>}>
+                          <AddProject />
+                      </Suspense>
+                  }/>
+                  <Route path="/projects" element={
+                      <Suspense fallback={<Loader/>}>
+                          <ListProjects />
+                      </Suspense>
+                  }/>
+                  <Route path="/projects/:projectId" element={
+                      <Suspense fallback={<Loader/>}>
+                          <ProjectDetails />
+                      </Suspense>
+                  }/>
+                  <Route path="*" element={
+                      <Suspense fallback={<Loader/>}>
+                          <PageNotFound />
+                      </Suspense>
+                  }/>
           </Routes>
       </MainContainer>
   );
