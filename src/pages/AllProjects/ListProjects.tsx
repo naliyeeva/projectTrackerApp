@@ -13,7 +13,7 @@ const ListProjects: React.FC = () => {
     const [data, setData] = useState<Project[]>([]);
 
     useEffect(() => {
-        const saved = JSON.parse(localStorage.getItem('project') || '{}');
+        const saved = JSON.parse(sessionStorage.getItem('project') || '{}');
         setData(saved);
     }, []);
 

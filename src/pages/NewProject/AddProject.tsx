@@ -37,7 +37,7 @@ const AddProject: React.FC = () => {
     }
 
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-        const projectFromStorage = localStorage.getItem('project')
+        const projectFromStorage = sessionStorage.getItem('project')
         if(title === '' || description === '' || techArray.length === 0) {
             Swal.fire({
                 icon: 'error',
@@ -45,7 +45,7 @@ const AddProject: React.FC = () => {
                 text: 'You should fill in all inputs!'
             })
         } else {
-            const addedProjects = JSON.parse(localStorage.getItem('project') || '{}')
+            const addedProjects = sessionStorage.getItem('project')
                 ?
                 JSON.parse(projectFromStorage ?? "")
                 : [];
@@ -60,7 +60,7 @@ const AddProject: React.FC = () => {
                     techArray
                 }
             ]
-            localStorage.setItem('project', JSON.stringify(newProject));
+            sessionStorage.setItem('project', JSON.stringify(newProject));
             Swal.fire({
                 icon: 'success',
                 title: 'Your project has been added!',
